@@ -1,277 +1,317 @@
 # AI Agent & Deep Research System
 
-An AI-powered agent system designed to understand user tasks, interact with web resources, perform research, and generate useful responses. The project combines an AI agent, browser interaction, research utilities, custom prompts, and a web-based user interface.
+An AI-powered browser agent and deep research system built on top of **browser-use**. The project provides a user-friendly **Gradio WebUI** for interacting with an AI agent that can browse websites, perform research, and execute browser-based tasks.
 
-## 🚀 Features
+The system supports multiple Large Language Models and provides features such as custom browser usage, persistent browser sessions, browser automation, and deep research.
 
-* 🤖 **AI Agent** – Processes user instructions and performs multi-step tasks.
-* 🔎 **Deep Research** – Performs structured research and collects relevant information from the web.
-* 🌐 **Browser Automation** – Enables the agent to interact with web pages.
-* 🧠 **Custom Prompting** – Uses customized system prompts and agent instructions to improve task execution.
-* 💬 **Message Management** – Handles communication between the user interface and the agent.
-* 🛠️ **Custom Controller** – Provides tools and actions that can be used by the agent.
-* 📊 **Agent State Management** – Maintains information required during agent execution.
-* 🖥️ **Web Interface** – Provides an interface for interacting with the AI agent.
-* 🧪 **Testing** – Includes tests for browser interaction, research functionality, LLM integration, and Playwright-based workflows.
-* 🐳 **Docker Support** – Includes Docker configuration for running the application in a containerized environment.
+## ✨ Features
 
-## 🏗️ Project Structure
+* 🤖 AI-powered browser agent
+* 🔎 Deep research capabilities
+* 🌐 Automated web browsing
+* 🖥️ Gradio-based WebUI
+* 🧠 Support for multiple LLM providers
+* 🔑 OpenAI, Anthropic, Google, Azure OpenAI, DeepSeek, Ollama and more
+* 🌍 Custom browser support
+* 🔄 Persistent browser sessions
+* 📹 Browser interaction monitoring
+* 🎭 Playwright browser automation
+* 🐳 Docker support
+* 🧪 Testing support
 
-```text
-ai-agent/
-└── web-ui/
-    ├── src/
-    │   ├── agent/
-    │   │   ├── custom_agent.py
-    │   │   ├── custom_message_manager.py
-    │   │   ├── custom_prompts.py
-    │   │   ├── custom_system_prompt.md
-    │   │   └── custom_views.py
-    │   │
-    │   ├── browser/
-    │   │   ├── custom_browser.py
-    │   │   └── custom_context.py
-    │   │
-    │   ├── controller/
-    │   │   └── custom_controller.py
-    │   │
-    │   └── utils/
-    │       ├── agent_state.py
-    │       ├── deep_research.py
-    │       ├── llm.py
-    │       └── utils.py
-    │
-    ├── tests/
-    │   ├── test_browser_use.py
-    │   ├── test_deep_research.py
-    │   ├── test_llm_api.py
-    │   └── test_playwright.py
-    │
-    ├── assets/
-    ├── webui.py
-    ├── requirements.txt
-    ├── docker-compose.yml
-    ├── .env.example
-    └── README.md
-```
+The WebUI is built with Gradio and supports most browser-use functionality.
 
-## 🔄 How It Works
-
-The system follows an agent-based workflow:
+## 🏗️ Architecture
 
 ```text
-User
-  │
-  ▼
-Web Interface
-  │
-  ▼
-AI Agent
-  │
-  ├── Understands the task
-  │
-  ├── Creates an execution plan
-  │
-  ├── Uses available tools
-  │
-  ├── Interacts with web resources
-  │
-  └── Performs research
-  │
-  ▼
-Research / Tool Results
-  │
-  ▼
-AI Processing
-  │
-  ▼
-Final Response
+                  ┌──────────────────┐
+                  │      User        │
+                  └────────┬─────────┘
+                           │
+                           ▼
+                  ┌──────────────────┐
+                  │     Gradio       │
+                  │      WebUI       │
+                  └────────┬─────────┘
+                           │
+                           ▼
+                  ┌──────────────────┐
+                  │    AI Agent      │
+                  └────────┬─────────┘
+                           │
+             ┌─────────────┼─────────────┐
+             ▼             ▼             ▼
+       ┌──────────┐  ┌───────────┐  ┌──────────┐
+       │   LLM    │  │  Browser  │  │ Research │
+       │ Providers│  │ Automation│  │  Engine  │
+       └──────────┘  └───────────┘  └──────────┘
+             │             │             │
+             └─────────────┼─────────────┘
+                           ▼
+                  ┌──────────────────┐
+                  │  Final Response  │
+                  └──────────────────┘
 ```
-
-## 🧩 Main Components
-
-### AI Agent
-
-`src/agent/custom_agent.py`
-
-The main agent component responsible for processing tasks and coordinating the different parts of the system.
-
-### Deep Research
-
-`src/utils/deep_research.py`
-
-Provides functionality for carrying out research-oriented tasks and processing information gathered during the workflow.
-
-### LLM Utilities
-
-`src/utils/llm.py`
-
-Contains utilities used for interacting with the language-model layer of the application.
-
-### Browser
-
-`src/browser/`
-
-Contains custom browser and browser-context functionality used when the agent needs to interact with web pages.
-
-### Controller
-
-`src/controller/custom_controller.py`
-
-Provides custom actions and controller functionality that can be used by the agent during task execution.
-
-### Agent State
-
-`src/utils/agent_state.py`
-
-Maintains state information required during agent workflows.
-
-### Web UI
-
-`webui.py`
-
-Provides the user-facing interface for interacting with the AI agent.
 
 ## 🛠️ Technologies
 
-* Python
-* Large Language Models (LLMs)
-* AI Agents
-* Web Research
-* Browser Automation
-* Playwright
-* Python Web UI
-* Docker
-* Git & GitHub
+* **Python**
+* **Gradio**
+* **browser-use**
+* **Playwright**
+* **Large Language Models (LLMs)**
+* **Browser Automation**
+* **Deep Research**
+* **Docker**
+* **Git & GitHub**
+
+## 🤖 LLM Support
+
+The project provides support for multiple LLM providers, including:
+
+* OpenAI
+* Anthropic
+* Google
+* Azure OpenAI
+* DeepSeek
+* Ollama
+
+Additional model support can be added as required.
+
+## 🌐 Browser Features
+
+### Custom Browser
+
+The application allows users to connect their own browser, which can help avoid repeatedly logging into websites.
+
+It also supports high-definition screen recording.
+
+### Persistent Browser Sessions
+
+The browser can remain open between AI tasks.
+
+This allows the agent to maintain browser history and state across multiple tasks.
+
+## 📋 Prerequisites
+
+Before installing the project, make sure you have:
+
+* Python **3.11 or higher**
+* Git
+* Internet connection
+
+Python 3.11+ and Git are listed as the project prerequisites.
 
 ## ⚙️ Installation
 
 ### 1. Clone the Repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd ai-agent/web-ui
+git clone https://github.com/chereeshmagccf-lab/AI-Agent-Deep-Research-System.git
+cd AI-Agent-Deep-Research-System/web-ui
 ```
 
-### 2. Create a Virtual Environment
+### 2. Create Virtual Environment
+
+Using `uv`:
 
 ```bash
-python -m venv .venv
+uv venv --python 3.11
 ```
 
-Activate it on Windows:
+Activate the environment.
+
+**Windows CMD:**
 
 ```bash
 .venv\Scripts\activate
 ```
 
-On Linux/macOS:
+**Windows PowerShell:**
+
+```bash
+.\.venv\Scripts\Activate.ps1
+```
+
+**macOS/Linux:**
 
 ```bash
 source .venv/bin/activate
 ```
 
+The project documentation recommends using `uv` for Python environment management.
+
 ### 3. Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+uv pip install -r requirements.txt
+```
+
+Install Chromium for Playwright:
+
+```bash
+playwright install --with-deps chromium
+```
+
+Or install all supported browsers:
+
+```bash
+playwright install
 ```
 
 ### 4. Configure Environment Variables
 
-Create a `.env` file using the provided example:
+Create the `.env` file from the example:
+
+**Windows CMD:**
+
+```bash
+copy .env.example .env
+```
+
+**PowerShell / macOS / Linux:**
 
 ```bash
 cp .env.example .env
 ```
 
-For Windows, you can also create the `.env` file manually from `.env.example`.
+Then open `.env` and add the required API keys and configuration values.
 
-Add the required API credentials and configuration values to the `.env` file.
+## 🔐 Environment Configuration
 
-### 5. Run the Application
+Example configuration:
 
-```bash
-python webui.py
+```env
+OPENAI_API_KEY=your_key_here
+ANTHROPIC_API_KEY=your_key_here
+GOOGLE_API_KEY=your_key_here
+
+CHROME_PERSISTENT_SESSION=true
+
+RESOLUTION=1920x1080x24
+RESOLUTION_WIDTH=1920
+RESOLUTION_HEIGHT=1080
+
+VNC_PASSWORD=your_vnc_password
 ```
 
-Then open the local web interface shown by the application.
+**Never commit your actual API keys to GitHub.**
 
-## 🐳 Docker
+## ▶️ Running the Application
 
-The project also contains Docker configuration.
+Start the WebUI using:
 
-To run using Docker Compose:
+```bash
+python webui.py --ip 127.0.0.1 --port 7788
+```
+
+Then open:
+
+```text
+http://127.0.0.1:7788
+```
+
+The application supports configuration options such as IP address, port, theme, and dark mode.
+
+## 🐳 Docker Installation
+
+Make sure Docker and Docker Compose are installed.
+
+Build and start the application:
 
 ```bash
 docker compose up --build
 ```
 
-After the containers start, access the application through the configured local port.
+To keep the browser session persistent:
+
+```bash
+CHROME_PERSISTENT_SESSION=true docker compose up --build
+```
+
+The project also supports AMD64 and ARM64 architectures.
+
+## 🖥️ Access the Application
+
+After starting Docker:
+
+**WebUI**
+
+```text
+http://localhost:7788
+```
+
+**VNC Browser Viewer**
+
+```text
+http://localhost:6080/vnc.html
+```
+
+The VNC viewer allows you to watch browser interactions in real time.
+
+## 🔄 Browser Session Modes
+
+### Default Mode
+
+```env
+CHROME_PERSISTENT_SESSION=false
+```
+
+* Browser opens for the AI task
+* Browser closes after the task
+* Provides a clean state for each interaction
+
+### Persistent Mode
+
+```env
+CHROME_PERSISTENT_SESSION=true
+```
+
+* Browser remains open
+* Maintains browser history and state
+* Makes it possible to observe previous interactions
+
+## 🌟 Use Cases
+
+This project can be used for:
+
+* AI-assisted web research
+* Automated browser tasks
+* Information gathering
+* Research workflows
+* Browser-based AI automation
+* Multi-step web interactions
+* AI agent experimentation
+* LLM-powered browser automation
 
 ## 🧪 Testing
 
-The project includes tests covering different parts of the system.
+The project includes tests for different parts of the system, including:
 
-Run the test suite using:
+* Browser functionality
+* Deep research
+* LLM API integration
+* Playwright automation
+
+Run the tests with:
 
 ```bash
 pytest
 ```
 
-Individual tests can also be executed, for example:
-
-```bash
-pytest tests/test_deep_research.py
-```
-
-```bash
-pytest tests/test_llm_api.py
-```
-
-```bash
-pytest tests/test_playwright.py
-```
-
-## 🔐 Environment Variables
-
-The project uses environment variables for configuration and API credentials.
-
-Do not commit your actual `.env` file or API keys to GitHub.
-
-Use:
-
-```text
-.env.example
-```
-
-as the template for required configuration.
-
-## 📌 Use Cases
-
-This project can be used for:
-
-* Automated web research
-* AI-assisted information gathering
-* Multi-step task execution
-* Browser-based automation
-* Research assistance
-* AI-powered workflow automation
-* Experimenting with agent-based AI systems
-
 ## 🔮 Future Improvements
 
-Possible future improvements include:
+Possible improvements include:
 
 * Retrieval-Augmented Generation (RAG)
+* More agent tools
+* Better research verification
+* Agent evaluation frameworks
+* MCP-based integrations
 * Persistent conversation memory
-* Better agent evaluation and monitoring
-* Additional tools and integrations
-* Improved research result verification
-* More robust error handling
+* Cloud deployment
+* Improved error handling
 * Authentication and user management
-* Deployment to a cloud platform
-* MCP-based tool integration
 
 ## 👩‍💻 Author
 
@@ -279,6 +319,12 @@ Possible future improvements include:
 
 B.Tech – Computer Science and Engineering
 
+GitHub:
+`https://github.com/chereeshmagccf-lab`
+
+LinkedIn:
+`https://www.linkedin.com/in/chereeshma-a-17845b42/`
+
 ## 📄 License
 
-This project is intended for educational and development purposes.
+This project is intended for educational, research, and development purposes.
