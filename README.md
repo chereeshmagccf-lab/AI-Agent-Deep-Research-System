@@ -320,10 +320,7 @@ Possible improvements include:
 B.Tech – Computer Science and Engineering
 
 GitHub:
-`https://github.com/chereeshmagccf-lab`
-
-LinkedIn:
-`https://www.linkedin.com/in/chereeshma-a-17845b42/`
+`https://github.com/chereeshmagccf-lab/AI-Agent-Deep-Research-System`
 
 ## 📄 License
 
